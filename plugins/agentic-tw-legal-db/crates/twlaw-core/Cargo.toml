@@ -1,0 +1,24 @@
+[package]
+name = "twlaw-core"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+authors.workspace = true
+description = "Core Taiwan legal database lookup logic for the twlaw CLI"
+
+[dependencies]
+chrono.workspace = true
+csv.workspace = true
+flate2.workspace = true
+percent-encoding.workspace = true
+regex.workspace = true
+reqwest.workspace = true
+scraper.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+thiserror.workspace = true
+url.workspace = true
+native-tls.workspace = true
+indexmap.workspace = true
+zip.workspace = true

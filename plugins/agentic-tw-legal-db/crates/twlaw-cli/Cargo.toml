@@ -1,0 +1,17 @@
+[package]
+name = "twlaw-cli"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+authors.workspace = true
+description = "CLI-native Taiwan legal database tool for agents"
+
+[[bin]]
+name = "twlaw"
+path = "src/main.rs"
+
+[dependencies]
+clap.workspace = true
+serde_json.workspace = true
+twlaw-core = { path = "../twlaw-core" }

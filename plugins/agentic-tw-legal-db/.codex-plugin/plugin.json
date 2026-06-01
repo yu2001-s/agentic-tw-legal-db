@@ -1,0 +1,38 @@
+{
+  "name": "agentic-tw-legal-db",
+  "version": "0.1.0",
+  "description": "CLI-native Taiwan legal database access for Codex and terminal agents",
+  "author": {
+    "name": "agentic tw legal db contributors"
+  },
+  "license": "MIT",
+  "keywords": [
+    "taiwan",
+    "legal",
+    "law",
+    "judgment",
+    "regulation",
+    "cli"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "agentic tw legal db",
+    "shortDescription": "Query Taiwan legal sources through the twlaw CLI.",
+    "longDescription": "agentic tw legal db gives Codex and terminal agents a CLI-native interface for Taiwan public legal data: Judicial Yuan judgments, Ministry of Justice regulations, Constitutional Court data, MOJ legal-reference material, and official no-token open-data sources. It intentionally avoids MCP and uses stable JSON stdout for agent workflows.",
+    "developerName": "agentic tw legal db contributors",
+    "category": "Productivity",
+    "capabilities": [
+      "CLI",
+      "Read"
+    ],
+    "defaultPrompt": [
+      "查民法第 184 條",
+      "搜尋預售屋遲延交屋判決",
+      "查釋字 748 的理由書重點"
+    ],
+    "brandColor": "#0F766E",
+    "websiteURL": "https://github.com/yu2001-s/agentic-tw-legal-db/tree/main/plugins/agentic-tw-legal-db",
+    "privacyPolicyURL": "https://github.com/yu2001-s/agentic-tw-legal-db/blob/main/plugins/agentic-tw-legal-db/docs/PRIVACY.md",
+    "termsOfServiceURL": "https://github.com/yu2001-s/agentic-tw-legal-db/blob/main/plugins/agentic-tw-legal-db/docs/TERMS.md"
+  }
+}
