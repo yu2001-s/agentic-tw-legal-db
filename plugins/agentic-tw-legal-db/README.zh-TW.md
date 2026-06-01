@@ -73,7 +73,7 @@ twlaw open-data legal-catalog --keyword "判決" --limit 10 --json
 
 | 介面 | 狀態 | 檔案 |
 | --- | --- | --- |
-| Codex | 原生 plugin skill | `.codex-plugin/plugin.json`、`skills/agentic-tw-legal-db/SKILL.md` |
+| Codex | 原生 plugin skills | `.codex-plugin/plugin.json`、`skills/twlaw-*/SKILL.md` |
 | Claude Code | 已支援 | `CLAUDE.md`、`.claude/commands/*.md` |
 | 能執行 shell 指令的通用 agent | 已支援 | `AGENTS.md` |
 | MCP client | 未內建 | 如有需要，可另外做一層 wrapper。 |

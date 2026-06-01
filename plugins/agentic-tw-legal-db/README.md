@@ -65,7 +65,7 @@ twlaw open-data legal-catalog --keyword "judgment" --limit 10 --json
 
 | Agent surface | Status | Files |
 | --- | --- | --- |
-| Codex | Native plugin skill | `.codex-plugin/plugin.json`, `skills/agentic-tw-legal-db/SKILL.md` |
+| Codex | Native plugin skills | `.codex-plugin/plugin.json`, `skills/twlaw-*/SKILL.md` |
 | Claude Code | Supported | `CLAUDE.md`, `.claude/commands/*.md` |
 | Generic terminal agents | Supported | `AGENTS.md` |
 | MCP clients | Not shipped | Add a wrapper only if needed |

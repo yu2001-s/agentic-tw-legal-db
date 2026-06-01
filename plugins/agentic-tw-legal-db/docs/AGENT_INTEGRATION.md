@@ -1,6 +1,6 @@
 # Agent Integration
 
-Supported: Codex plugin skill, generic `AGENTS.md`, Claude Code `CLAUDE.md` plus `.claude/commands/`.
+Supported: Codex plugin skills, generic `AGENTS.md`, Claude Code `CLAUDE.md` plus `.claude/commands/`.
 
 Not shipped: MCP wrapper.
 

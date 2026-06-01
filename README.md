@@ -46,7 +46,7 @@ Start here:
 
 The plugin currently supports:
 
-- Codex through the native plugin skill in `plugins/agentic-tw-legal-db/skills/`.
+- Codex through native plugin skills in `plugins/agentic-tw-legal-db/skills/`.
 - Claude Code through `CLAUDE.md` and `.claude/commands/`.
 - Generic terminal agents through `AGENTS.md`.
 - Other agents through direct shell use of `twlaw`.

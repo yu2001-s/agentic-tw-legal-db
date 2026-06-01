@@ -49,7 +49,7 @@ agent 應會自行下載 repo、進入 plugin 目錄、執行安裝腳本，並�
 
 目前支援：
 
-- Codex：透過 `plugins/agentic-tw-legal-db/skills/` 內的原生 plugin skill。
+- Codex：透過 `plugins/agentic-tw-legal-db/skills/` 內的原生 plugin skills。
 - Claude Code：透過 `CLAUDE.md` 與 `.claude/commands/`。
 - 能執行 shell 指令的通用 agent：透過 `AGENTS.md`。
 - 其他 agent：直接用 shell 執行 `twlaw`。
