@@ -6,6 +6,25 @@
 
 英文版文件：[README.md](README.md)
 
+## 用提示詞安裝
+
+把下面這一句貼給你正在使用的 agent：
+
+```text
+Install the public Taiwan legal research CLI plugin from https://github.com/yu2001-s/agentic-tw-legal-db.
+```
+
+agent 應會自行下載 repo、進入 plugin 目錄、執行安裝腳本，並用 `twlaw --version`、`twlaw sources status --json`、`twlaw agent guide --json` 確認安裝結果。這個 plugin 不需要使用者申請政府 API key，也不需要設定 MCP。
+
+## 從這裡開始
+
+- [Plugin 說明](plugins/agentic-tw-legal-db/README.zh-TW.md)
+- [通用 agent 指引](plugins/agentic-tw-legal-db/AGENTS.md)
+- [Claude Code 指引](plugins/agentic-tw-legal-db/CLAUDE.md)
+- [發布檢查清單](plugins/agentic-tw-legal-db/docs/PUBLISHING.md)
+
+預設工作流程使用台灣官方公開法律資料來源；需要帳號或 API key 的來源只列為延伸參考，不是基本查詢流程的必要條件。
+
 ## 這是什麼
 
 - 讓 agent 查詢台灣法規、命令、裁判書、憲法法庭資料、法務部法律參考資料，以及政府資料開放平臺上的法律相關資料集。
@@ -25,25 +44,6 @@
 | 憲法法庭與大法官資料 | 司法院憲法法庭 `cons.judicial.gov.tw` | 內建資料快照 + 公開網頁/AJAX 查詢，並限制查詢量 | 搜尋內建的大法官解釋與憲法法庭裁判、查最新判決列表、終結案件查詢、引用關係與理由書片段。 |
 | 政府資料開放平臺目錄 | `data.gov.tw` | 不需 API key 的公開目錄匯出 | 查找法律相關資料集，保留機關、授權、來源網址與目錄資訊。 |
 | 司法院 JList/JDoc API | `data.judicial.gov.tw/jdg/api` | 需申請 API key 的官方 API | 已盤點但不作為預設資料來源；本工具的基本流程必須不用申請帳號或 API key。 |
-
-## 用提示詞安裝
-
-把下面這一句貼給你正在使用的 agent：
-
-```text
-Install the public Taiwan legal research CLI plugin from https://github.com/yu2001-s/agentic-tw-legal-db.
-```
-
-agent 應會自行下載 repo、進入 plugin 目錄、執行安裝腳本，並用 `twlaw --version`、`twlaw sources status --json`、`twlaw agent guide --json` 確認安裝結果。這個 plugin 不需要使用者申請政府 API key，也不需要設定 MCP。
-
-## 從這裡開始
-
-- [Plugin 說明](plugins/agentic-tw-legal-db/README.zh-TW.md)
-- [通用 agent 指引](plugins/agentic-tw-legal-db/AGENTS.md)
-- [Claude Code 指引](plugins/agentic-tw-legal-db/CLAUDE.md)
-- [發布檢查清單](plugins/agentic-tw-legal-db/docs/PUBLISHING.md)
-
-預設工作流程使用台灣官方公開法律資料來源；需要帳號或 API key 的來源只列為延伸參考，不是基本查詢流程的必要條件。
 
 ## 支援哪些 agent
 

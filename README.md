@@ -6,6 +6,22 @@ The project is CLI-first: agents call `twlaw ... --json`, get structured JSON ba
 
 Traditional Chinese documentation: [README.zh-TW.md](README.zh-TW.md)
 
+## Install By Pasting A Prompt
+
+Paste this exact prompt into the coding agent you use:
+
+```text
+Install the public Taiwan legal research CLI plugin from https://github.com/yu2001-s/agentic-tw-legal-db.
+```
+
+Start here:
+
+- [Plugin README](plugins/agentic-tw-legal-db/README.md)
+- [Plugin README in Traditional Chinese](plugins/agentic-tw-legal-db/README.zh-TW.md)
+- [Generic agent instructions](plugins/agentic-tw-legal-db/AGENTS.md)
+- [Claude Code instructions](plugins/agentic-tw-legal-db/CLAUDE.md)
+- [Publishing checklist](plugins/agentic-tw-legal-db/docs/PUBLISHING.md)
+
 ## What It Does
 
 - Helps agents query Taiwan laws, regulations, orders, judgments, constitutional decisions, MOJ legal-reference material, and legal open-data catalog records.
@@ -25,22 +41,6 @@ Traditional Chinese documentation: [README.zh-TW.md](README.zh-TW.md)
 | Constitutional Court | Judicial Yuan Constitutional Court, `cons.judicial.gov.tw` | Bundled snapshots plus bounded public HTML/AJAX | Search bundled interpretations and rulings, fetch current judgment lists, search terminal cases, and extract citations or reasoning snippets. |
 | Government open-data catalog | `data.gov.tw` | No-token public catalog export | Discovery of legal-related datasets with agency, license, source URL, and catalog metadata. |
 | Judicial Yuan JList/JDoc API | `data.judicial.gov.tw/jdg/api` | Token-required official API | Tracked as reference coverage only; not used by default because the plugin must work without an application step. |
-
-## Install By Pasting A Prompt
-
-Paste this exact prompt into the coding agent you use:
-
-```text
-Install the public Taiwan legal research CLI plugin from https://github.com/yu2001-s/agentic-tw-legal-db.
-```
-
-Start here:
-
-- [Plugin README](plugins/agentic-tw-legal-db/README.md)
-- [Plugin README in Traditional Chinese](plugins/agentic-tw-legal-db/README.zh-TW.md)
-- [Generic agent instructions](plugins/agentic-tw-legal-db/AGENTS.md)
-- [Claude Code instructions](plugins/agentic-tw-legal-db/CLAUDE.md)
-- [Publishing checklist](plugins/agentic-tw-legal-db/docs/PUBLISHING.md)
 
 ## Agent Compatibility
 
