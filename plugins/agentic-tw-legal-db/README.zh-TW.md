@@ -36,6 +36,7 @@ twlaw agent guide --json
 | --- | --- | --- |
 | 資料來源盤點與 agent 指引 | `twlaw sources ...`、`twlaw agent guide` | 查目前涵蓋哪些官方來源、哪些資料不需 API key、還有哪些明確缺口，以及建議的 agent 工作流程。 |
 | 全國法規資料庫資料 | `twlaw regulation ...`、`twlaw moj ...` | 查法規名稱、pcode、條文、沿革資料，以及法務部 OpenAPI ZIP 檔中的中文/英文法規與命令資料。這些 ZIP 檔不需申請 API key。 |
+| 立法院法律沿革與立法理由 | `twlaw legislative history ...` | 查立法院法律系統 `lis.ly.gov.tw/lglawc/lglawkm` 的法律沿革版本、逐條立法理由與公報來源連結。 |
 | 最新法規訊息 | `twlaw moj updates ...` | 查近期法律、命令、行政規則、地方法規、草案預告等異動訊息，並保留官方來源連結。 |
 | 條約協定 | `twlaw moj agreements ...` | 查條約協定與兩岸協議，可依分類瀏覽或用關鍵字查詢。 |
 | 法務部主管法規查詢系統 | `twlaw mojlaw search ...` | 查行政函釋、法規諮詢意見、法律問題座談、聲明異議決定書，以及相關法規與裁判參考資料。 |
@@ -59,6 +60,7 @@ twlaw agent guide --json
 twlaw sources status --json
 twlaw agent guide --json
 twlaw regulation query --law "民法" --article "184" --json
+twlaw legislative history --law "中華民國刑法" --article 339-4 --include-reasons --all-versions --json
 twlaw moj sync --dataset ch-law --json
 twlaw moj search --dataset ch-order --keyword "勞動" --include-articles --limit 20 --json
 twlaw moj updates --kind order --limit 10 --json

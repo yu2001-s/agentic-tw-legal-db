@@ -59,6 +59,25 @@ const SOURCES: &[OfficialSource] = &[
         notes: "Snapshot freshness should be checked with sources status before relying on history completeness.",
     },
     OfficialSource {
+        id: "legislative_yuan_law_history",
+        name: "立法院法律系統法律沿革與立法理由",
+        agency: "Legislative Yuan",
+        category: "law_history_and_legislative_reasons",
+        url: "https://lis.ly.gov.tw/lglawc/lglawkm",
+        access_mode: "public_html",
+        credentials_required: false,
+        implementation_status: "implemented_partial",
+        coverage: "Law-name search, legislative-history versions, and article-level 條文/理由 pages are available through bounded live queries.",
+        agent_default: true,
+        commands: &[
+            "twlaw legislative history --law <law-name> --json",
+            "twlaw legislative history --law <law-name> --include-reasons --json",
+            "twlaw legislative history --law <law-name> --date <roc-yyyymmdd> --article <no> --include-reasons --json",
+            "twlaw legislative history --law <law-name> --article <no> --include-reasons --all-versions --json",
+        ],
+        notes: "Use when the user asks for 法律沿革, 立法理由, or Legislative Yuan source URLs. Keep live query concurrency low.",
+    },
+    OfficialSource {
         id: "moj_openapi_ch_law",
         name: "全國法規資料庫 OpenAPI 中文法規",
         agency: "Ministry of Justice",
@@ -469,6 +488,15 @@ pub fn agent_guide() -> TwlawResult<Value> {
                     "twlaw regulation pcode --law <law-name> --json",
                     "twlaw moj get --dataset ch-law --law <law-name> --article <article-no> --json",
                     "twlaw regulation query --law <law-name> --article <article-no> --json"
+                ]
+            },
+            {
+                "task": "Law history and legislative reasons",
+                "commands": [
+                    "twlaw legislative history --law <law-name> --json",
+                    "twlaw legislative history --law <law-name> --include-reasons --json",
+                    "twlaw legislative history --law <law-name> --date <roc-yyyymmdd> --article <article-no> --include-reasons --json",
+                    "twlaw legislative history --law <law-name> --article <article-no> --include-reasons --all-versions --json"
                 ]
             },
             {

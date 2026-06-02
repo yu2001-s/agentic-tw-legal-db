@@ -7,6 +7,7 @@ use twlaw_core::judicial::{
     get_judgment, search_judgments, search_special_judgments, JudgmentGet, JudgmentSearch,
     JudgmentSpecialSearch,
 };
+use twlaw_core::legislative::{legislative_history, LegislativeHistoryQuery};
 use twlaw_core::moj_openapi::{
     moj_agreements, moj_datasets, moj_get, moj_search, moj_status, moj_sync, moj_updates,
     MojAgreementsQuery, MojDatasetQuery, MojGetQuery, MojSearchQuery, MojSyncQuery,
@@ -63,6 +64,13 @@ enum Command {
         about = "Search the Ministry of Justice department law retrieval system."
     )]
     Mojlaw(MojlawCommand),
+    #[command(
+        name = "legislative",
+        alias = "ly",
+        alias = "lglaw",
+        about = "Query Legislative Yuan law history and legislative reasons."
+    )]
+    Legislative(LegislativeCommand),
     #[command(
         name = "open-data",
         alias = "opendata",
@@ -335,6 +343,12 @@ struct MojlawCommand {
     command: MojlawSubcommand,
 }
 
+#[derive(Debug, Args)]
+struct LegislativeCommand {
+    #[command(subcommand)]
+    command: LegislativeSubcommand,
+}
+
 #[derive(Debug, Subcommand)]
 enum MojlawSubcommand {
     #[command(
@@ -349,6 +363,40 @@ enum MojlawSubcommand {
         #[arg(long, help = "Keyword to search.")]
         keyword: String,
         #[arg(long, default_value_t = 10, help = "Maximum results to return.")]
+        limit: usize,
+    },
+}
+
+#[derive(Debug, Subcommand)]
+enum LegislativeSubcommand {
+    #[command(
+        about = "Search the Legislative Yuan law system for law history and optionally article-level legislative reasons."
+    )]
+    History {
+        #[arg(long, help = "Law name to search in the Legislative Yuan law system.")]
+        law: String,
+        #[arg(
+            long,
+            help = "ROC action date for a specific version, for example 1120530."
+        )]
+        date: Option<String>,
+        #[arg(
+            long,
+            help = "Article number to filter legislative reasons, for example 3 or 7-1."
+        )]
+        article: Option<String>,
+        #[arg(long, help = "Fetch article-level 條文/理由 for the selected version.")]
+        include_reasons: bool,
+        #[arg(
+            long,
+            help = "With --include-reasons and --article, scan all law-history versions for matching article-level reasons."
+        )]
+        all_versions: bool,
+        #[arg(
+            long,
+            default_value_t = 20,
+            help = "Maximum law search results to return."
+        )]
         limit: usize,
     },
 }
@@ -697,6 +745,23 @@ fn main() {
             } => mojlaw_search(MojlawSearchQuery {
                 kind,
                 keyword,
+                limit,
+            }),
+        },
+        Command::Legislative(command) => match command.command {
+            LegislativeSubcommand::History {
+                law,
+                date,
+                article,
+                include_reasons,
+                all_versions,
+                limit,
+            } => legislative_history(LegislativeHistoryQuery {
+                law,
+                date,
+                article,
+                include_reasons,
+                all_versions,
                 limit,
             }),
         },

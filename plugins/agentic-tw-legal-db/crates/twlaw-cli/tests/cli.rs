@@ -199,3 +199,35 @@ fn mojlaw_invalid_kind_fails_before_network() {
     assert_eq!(json["success"], false);
     assert_eq!(json["error"]["code"], "invalid_input");
 }
+
+#[test]
+fn legislative_history_empty_law_fails_before_network() {
+    let output = twlaw()
+        .args(["legislative", "history", "--law", "", "--json"])
+        .output()
+        .expect("run twlaw");
+    assert_eq!(output.status.code(), Some(2));
+    let json: serde_json::Value = serde_json::from_slice(&output.stdout).expect("json stdout");
+    assert_eq!(json["success"], false);
+    assert_eq!(json["error"]["code"], "invalid_input");
+}
+
+#[test]
+fn legislative_all_versions_requires_article_before_network() {
+    let output = twlaw()
+        .args([
+            "legislative",
+            "history",
+            "--law",
+            "中華民國刑法",
+            "--include-reasons",
+            "--all-versions",
+            "--json",
+        ])
+        .output()
+        .expect("run twlaw");
+    assert_eq!(output.status.code(), Some(2));
+    let json: serde_json::Value = serde_json::from_slice(&output.stdout).expect("json stdout");
+    assert_eq!(json["success"], false);
+    assert_eq!(json["error"]["code"], "invalid_input");
+}

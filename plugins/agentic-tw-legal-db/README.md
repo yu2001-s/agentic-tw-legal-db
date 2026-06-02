@@ -28,6 +28,7 @@ scripts/install.sh
 | --- | --- | --- |
 | Source/agent guide | `twlaw sources ...`, `twlaw agent guide` | Coverage status, no-credential policy, gaps, recommended workflows. |
 | MOJ laws and regulations | `twlaw regulation ...`, `twlaw moj ...` | Law names, pcodes, articles, history metadata, no-token MOJ OpenAPI ZIP datasets for Chinese/English laws and orders. |
+| Legislative Yuan law history | `twlaw legislative history ...` | Legislative Yuan law-history versions, article-level legislative reasons, and Gazette/source links from `lis.ly.gov.tw/lglawc/lglawkm`. |
 | MOJ legal updates | `twlaw moj updates ...` | Recent law, order, rule, local-law, and draft notices with official links. |
 | MOJ agreements | `twlaw moj agreements ...` | Treaty and cross-strait agreement listings, categories, and keyword search. |
 | MOJ legal references | `twlaw mojlaw search ...` | Administrative interpretations, legal consultation opinions, legal issue seminars, objection decisions, Constitutional Court/Judicial Yuan references, and precedent materials from the MOJ retrieval system. |
@@ -51,6 +52,7 @@ scripts/install.sh
 twlaw sources status --json
 twlaw agent guide --json
 twlaw regulation query --pcode B0000001 --article 184 --json
+twlaw legislative history --law "中華民國刑法" --article 339-4 --include-reasons --all-versions --json
 twlaw moj sync --dataset ch-law --json
 twlaw moj search --dataset en-law --keyword "Civil" --include-articles --limit 20 --json
 twlaw moj updates --kind order --limit 10 --json

@@ -35,6 +35,7 @@ Start here:
 | Area | Official source | Access model | Current coverage |
 | --- | --- | --- | --- |
 | Laws and regulations | Ministry of Justice, `law.moj.gov.tw` | Public HTML plus no-token ZIP datasets | Law-name search, pcode lookup, article/full-law fetch, law-history metadata, Chinese and English law/order bulk sync and search. |
+| Law history and legislative reasons | Legislative Yuan, `lis.ly.gov.tw/lglawc/lglawkm` | Public HTML | Legislative Yuan law-history versions, article-level legislative reasons, and Gazette/source links. |
 | Legal updates and agreements | Ministry of Justice, `law.moj.gov.tw` | Public HTML | Recent law/order/rule/local/draft notices, Gazette links returned by MOJ pages, treaty listings, and cross-strait agreement listings. |
 | MOJ legal references | Ministry of Justice, `mojlaw.moj.gov.tw` | Public HTML | Administrative interpretations, legal consultation opinions, legal issue seminars, objection decisions, and related legal-reference search results. |
 | Judicial Yuan judgments | Judicial Yuan, `judgment.judicial.gov.tw` | Bounded public HTML | Public judgment search, full-text fetch by returned id or URL, and special searches such as simple cases, declaration judgments, and public-summons rulings. |

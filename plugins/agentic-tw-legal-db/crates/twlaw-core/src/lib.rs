@@ -2,6 +2,7 @@ pub mod constitutional;
 pub mod data;
 pub mod error;
 pub mod judicial;
+pub mod legislative;
 pub mod moj_openapi;
 pub mod mojlaw;
 pub mod opendata;
