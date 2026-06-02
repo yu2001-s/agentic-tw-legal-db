@@ -27,7 +27,7 @@ agent 應會自行下載 repo、進入 plugin 目錄、執行安裝腳本，並�
 
 ## 這是什麼
 
-- 讓 agent 查詢台灣法規、命令、裁判書、憲法法庭資料、法務部法律參考資料，以及政府資料開放平臺上的法律相關資料集。
+- 讓 agent 查詢台灣法規、命令、法律沿革、立法理由、裁判書、憲法法庭資料、法務部法律參考資料，以及政府資料開放平臺上的法律相關資料集。
 - 查詢成功或失敗都回傳 JSON，方便 agent 穩定解析。
 - 內建資料來源盤點指令，讓 agent 在開始研究前先說明涵蓋範圍、已知缺口、資料新舊，以及是否需要帳號或 API key。
 - 常用資料盡量走快取或內建資料快照；即時連到政府網站的查詢則限制查詢量，避免對官方網站造成不必要壓力。
@@ -45,6 +45,16 @@ agent 應會自行下載 repo、進入 plugin 目錄、執行安裝腳本，並�
 | 憲法法庭與大法官資料 | 司法院憲法法庭 `cons.judicial.gov.tw` | 內建資料快照 + 公開網頁/AJAX 查詢，並限制查詢量 | 搜尋內建的大法官解釋與憲法法庭裁判、查最新判決列表、終結案件查詢、引用關係與理由書片段。 |
 | 政府資料開放平臺目錄 | `data.gov.tw` | 不需 API key 的公開目錄匯出 | 查找法律相關資料集，保留機關、授權、來源網址與目錄資訊。 |
 | 司法院 JList/JDoc API | `data.judicial.gov.tw/jdg/api` | 需申請 API key 的官方 API | 已盤點但不作為預設資料來源；本工具的基本流程必須不用申請帳號或 API key。 |
+
+## 常用查詢範例
+
+```bash
+twlaw regulation query --law "民法" --article "184" --json
+twlaw legislative history --law "中華民國刑法" --article 339-4 --include-reasons --all-versions --json
+twlaw legislative history --law "民法第二編債" --article 166-1 --include-reasons --all-versions --json
+```
+
+查特定法條的立法沿革、修正條文與立法理由時，使用 `twlaw legislative history` 並加上 `--article`、`--include-reasons`、`--all-versions`。如果已知道特定修正日期，也可以改用 `--date <民國年月日>` 限縮查詢，例如 `--date 1030530`。
 
 ## 支援哪些 agent
 

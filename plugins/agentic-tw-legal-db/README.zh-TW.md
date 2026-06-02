@@ -50,6 +50,7 @@ twlaw agent guide --json
 - 成功與失敗都要讀 JSON，不要只解析一般文字輸出。
 - 回答使用者時保留 `source_url`、`retrieved_at`、快取狀態、分頁與截斷資訊。
 - 先查目錄或中繼資料，再抓全文。
+- 查特定法條的法律沿革、修正條文與立法理由時，使用 `twlaw legislative history --article <條號> --include-reasons --all-versions --json`。
 - 如果要大量查法務部法規或命令，先執行 `twlaw moj sync --dataset <id> --json`。
 - 內建資料與快取查詢可以並行執行；即時連到政府網站的查詢要控制併發量。
 - 查詢結果是法律研究參考資料，不是法律意見。
@@ -61,6 +62,7 @@ twlaw sources status --json
 twlaw agent guide --json
 twlaw regulation query --law "民法" --article "184" --json
 twlaw legislative history --law "中華民國刑法" --article 339-4 --include-reasons --all-versions --json
+twlaw legislative history --law "民法第二編債" --article 166-1 --include-reasons --all-versions --json
 twlaw moj sync --dataset ch-law --json
 twlaw moj search --dataset ch-order --keyword "勞動" --include-articles --limit 20 --json
 twlaw moj updates --kind order --limit 10 --json
