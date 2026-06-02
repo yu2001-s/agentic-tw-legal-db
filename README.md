@@ -52,4 +52,19 @@ The plugin currently supports:
 - Generic terminal agents through `AGENTS.md`.
 - Other agents through direct shell use of `twlaw`.
 
+## Using Skills
+
+After installation in Codex, the plugin manifest points Codex at `plugins/agentic-tw-legal-db/skills/`. Users do not call the skill files directly; ask a legal research question, and Codex should select the matching `twlaw-*` skill, then run `twlaw ... --json`.
+
+| Skill | Use for |
+| --- | --- |
+| `twlaw-regulations` | Laws, articles, pcodes, MOJ law/order data, law history, legislative reasons. |
+| `twlaw-judgments` | Judicial Yuan judgments and special judgment searches. |
+| `twlaw-constitutional` | Constitutional Court judgments, interpretations, citations, reasoning, terminal cases. |
+| `twlaw-moj-references` | MOJ interpretations, legal consultations, seminars, objections, treaties, agreements. |
+| `twlaw-open-data` | Legal open-data catalog discovery. |
+| `twlaw-setup-diagnostics` | Install checks, source coverage, troubleshooting, publishing checks. |
+
+For non-Codex agents, use the same workflows by reading [AGENTS.md](plugins/agentic-tw-legal-db/AGENTS.md) and running the CLI commands directly.
+
 The published package intentionally keeps installation simple: users paste one prompt into their agent, and the agent performs the clone, install, and verification steps.

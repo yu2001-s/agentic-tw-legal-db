@@ -36,6 +36,27 @@ scripts/install.sh
 | Constitutional Court | `twlaw interpretation ...` | Bundled interpretations/rulings, live current judgments, terminal-case search, citations, reasoning/opinion snippets. |
 | Government open data | `twlaw open-data legal-catalog ...` | Cached discovery of legal-related data.gov.tw datasets with source and license metadata. |
 
+## How Skills Work
+
+Codex reads `.codex-plugin/plugin.json`, loads every `SKILL.md` under `skills/`, and chooses a skill from the user request. Users do not run skill files directly. The skill tells the agent which `twlaw ... --json` command to run and what source metadata to preserve.
+
+| Skill file | Triggering work |
+| --- | --- |
+| `skills/twlaw-regulations/SKILL.md` | Laws, articles, pcodes, MOJ law/order data, law history, legislative reasons. |
+| `skills/twlaw-judgments/SKILL.md` | Judicial Yuan judgment search, judgment fetch, simple/declaration/public-summons searches. |
+| `skills/twlaw-constitutional/SKILL.md` | Constitutional Court decisions, interpretations, citations, reasoning, opinions, terminal cases. |
+| `skills/twlaw-moj-references/SKILL.md` | MOJ interpretations, consultations, seminars, objections, treaties, agreements. |
+| `skills/twlaw-open-data/SKILL.md` | Legal open-data catalog discovery. |
+| `skills/twlaw-setup-diagnostics/SKILL.md` | Install checks, source coverage, troubleshooting, release checks. |
+
+For example, a question about the legislative reasons for `刑法第 339-4 條` should trigger `twlaw-regulations` and run:
+
+```bash
+twlaw legislative history --law "中華民國刑法" --article 339-4 --include-reasons --all-versions --json
+```
+
+For non-Codex agents, read `AGENTS.md` and run the same CLI commands directly.
+
 ## Agent Contract
 
 - Always call `twlaw ... --json`.

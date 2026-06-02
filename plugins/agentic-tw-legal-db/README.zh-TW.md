@@ -44,6 +44,27 @@ twlaw agent guide --json
 | 憲法法庭與大法官資料 | `twlaw interpretation ...` | 查內建的大法官解釋與憲法法庭裁判資料，也可查最新判決、終結案件、引用關係、理由書與意見書片段。 |
 | 政府資料開放平臺 | `twlaw open-data legal-catalog ...` | 查 `data.gov.tw` 中的法律相關資料集，包含來源連結與授權資訊。 |
 
+## Skills 如何使用
+
+Codex 會讀取 `.codex-plugin/plugin.json`，載入 `skills/` 底下每個 `SKILL.md`，再依使用者問題選擇對應 skill。使用者不需要手動執行 skill 檔；skill 會告訴 agent 該跑哪個 `twlaw ... --json` 指令，以及回答時要保留哪些來源資訊。
+
+| Skill 檔案 | 適用工作 |
+| --- | --- |
+| `skills/twlaw-regulations/SKILL.md` | 法規、條文、pcode、法務部法規/命令資料、法律沿革、立法理由。 |
+| `skills/twlaw-judgments/SKILL.md` | 司法院裁判書搜尋、裁判全文、簡易案件、除權判決、公示催告裁定。 |
+| `skills/twlaw-constitutional/SKILL.md` | 憲法法庭判決、解釋、引用關係、理由書、意見書、終結案件。 |
+| `skills/twlaw-moj-references/SKILL.md` | 法務部函釋、法規諮詢、法律問題座談、聲明異議、條約協定。 |
+| `skills/twlaw-open-data/SKILL.md` | 法律相關政府開放資料集目錄。 |
+| `skills/twlaw-setup-diagnostics/SKILL.md` | 安裝檢查、資料來源涵蓋範圍、故障排除、發布檢查。 |
+
+例如問 `刑法第 339-4 條的立法理由` 時，應觸發 `twlaw-regulations`，並執行：
+
+```bash
+twlaw legislative history --law "中華民國刑法" --article 339-4 --include-reasons --all-versions --json
+```
+
+非 Codex agent 可以讀 `AGENTS.md`，照相同流程直接執行 CLI 指令。
+
 ## 給 agent 的使用規則
 
 - 查詢時一律加上 `--json`。

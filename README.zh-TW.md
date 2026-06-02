@@ -65,4 +65,19 @@ twlaw legislative history --law "民法第二編債" --article 166-1 --include-r
 - 能執行 shell 指令的通用 agent：透過 `AGENTS.md`。
 - 其他 agent：直接用 shell 執行 `twlaw`。
 
+## 如何使用 skills
+
+安裝到 Codex 後，plugin manifest 會指向 `plugins/agentic-tw-legal-db/skills/`。使用者不需要手動執行 skill 檔；直接提出法律研究問題，Codex 會依問題類型選擇對應的 `twlaw-*` skill，然後執行 `twlaw ... --json`。
+
+| Skill | 適用問題 |
+| --- | --- |
+| `twlaw-regulations` | 法規、條文、pcode、法務部法規/命令資料、法律沿革、立法理由。 |
+| `twlaw-judgments` | 司法院裁判書、特殊裁判查詢。 |
+| `twlaw-constitutional` | 憲法法庭判決、解釋、引用關係、理由書、終結案件。 |
+| `twlaw-moj-references` | 法務部函釋、法規諮詢、法律問題座談、聲明異議、條約協定。 |
+| `twlaw-open-data` | 法律相關政府開放資料集目錄。 |
+| `twlaw-setup-diagnostics` | 安裝檢查、資料來源涵蓋範圍、故障排除、發布檢查。 |
+
+非 Codex agent 可以讀 [AGENTS.md](plugins/agentic-tw-legal-db/AGENTS.md)，照相同流程直接執行 CLI 指令。
+
 公開安裝流程刻意保持簡單：使用者只要貼一句提示詞，agent 負責下載 repo、安裝與驗證。
